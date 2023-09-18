@@ -1,6 +1,7 @@
 import bcrypt from 'bcrypt';
 import { pool } from '../db.js';
 import { loginUser, registerUser } from '../queries/auth.js';
+import jwt from 'jsonwebtoken'
 
 export const Register = async(req,res)=>{
     const {name,email,password,college,dob} = req.body;
@@ -33,6 +34,7 @@ export const Login = async(req,res)=>{
     res.json({token: token});
 }
 
+const jwtSecret = "my-secret-key";
 export function authenticateToken(req, res, next) {
     const token = req.header('Authorization');
   

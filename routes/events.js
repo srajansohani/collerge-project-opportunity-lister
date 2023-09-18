@@ -1,5 +1,5 @@
 import express from "express";
-import { listEvents,listEvent } from "../contollers/events";
+import { listEvents,listEvent } from "../contollers/events.js";
 
 const router = express.Router();
 
